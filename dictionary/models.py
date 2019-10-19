@@ -360,6 +360,9 @@ class Definition(models.Model):
     def __str__(self):
         return f'{self.text}'
 
+    def valid_top_definition(self):
+        return self.net_votes > 0
+
     # Voting methods
     # TODO: ensure any concurrency issues are sorted out
     def upvote(self, user):
